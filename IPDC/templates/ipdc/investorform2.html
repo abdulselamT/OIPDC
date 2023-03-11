@@ -1,0 +1,150 @@
+{% extends 'ipdc/index.html' %}
+{% load static %}
+
+    {% block content %}
+      <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'profilepage' %}">Profile</a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="{% url 'landpage' %}">request land</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'filesubmit' %}">filesubmit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+            
+            </div>
+            <!-- /.card -->
+
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">request land</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form method="POST">
+                  {{landform.errors}}
+                  {% csrf_token %}
+                  
+                <div class="form-group">
+                        <label>Form of Investement</label>
+                        <select class="form-control" name='form_of_investment' required>
+                          <option>soleprorietor</option>
+                          <option>PLC</option>
+                          <option>joint-venture</option>
+                        </select>
+                      </div>
+                <div class="form-group">
+                        <label>Request Type</label>
+                        <select class="form-control" name='requested_type' required>
+                          <option>License</option>
+                          <option>Land Request</option>
+                          <option>Expansion</option>
+                        </select>
+                      </div>
+                  <div class="form-group">
+                  <label for="exampleInputPassword1">Requested Land (In Hec.Or M2)</label>
+                    <input type="number" name="requested_land" step="0.01" min="0" class="form-control" id="exampleInputPassword1" placeholder="total" required>
+                  </div>
+                <div class="form-group">
+                        <label>sector</label>
+                        <select class="form-control" name='sector' required>
+                          <option>Manufacturing</option>
+                          <option>Agriculture</option>
+                          <option>Service</option>
+                        </select>
+                      </div>
+                  <div class="form-group">
+                  <label for="exampleInputPassword1"> Project Name</label>
+                    <input type="number" name="project_name" step="0.01" min="0" class="form-control" id="exampleInputPassword1" placeholder="project name" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Project description</label>
+                     <textarea  name='project_description' class="form-control" rows="6" placeholder="project description"></textarea>
+                  </div>
+                  <div class="form-group">
+                  <label for="exampleInputPassword1">capital</label>
+                    <input type="number" name="capital" step="0.01" min="0" class="form-control" id="exampleInputPassword1" placeholder="$" required>
+                  </div>
+                  <div class="form-group">
+                  <label for="exampleInputPassword1">owner equity</label>
+                    <input type="number" name="owner_equity" step="0.01" min="0" class="form-control" id="exampleInputPassword1" placeholder="$" required>
+                  </div>
+                
+                
+                <div class="form-group">
+                    <label for="exampleInputPassword1">bank loan</label>
+                    <input type="number" name="bank_loan" step="0.01" min="0" class="form-control" id="exampleInputPassword1" placeholder="$" required>
+                  </div>  
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Temporary Job Create </label>
+                    <input type="text" name="temporay_job" class="form-control" id="exampleInputPassword1" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Permanent Job Create </label>
+                    <input type="text" name="Permanent_job" class="form-control" id="exampleInputPassword1" placeholder="" required>
+                </div>
+                
+           
+                  <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <!-- /.card-body -->
+               
+                <!-- /.card-footer -->
+              </form>
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          
+            <!-- /.card -->
+
+            
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+
+{%endblock%}
+<!-- jQuery -->
