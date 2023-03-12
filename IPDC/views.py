@@ -7,6 +7,27 @@ from .forms import *
 from django.contrib import messages
 from . models import *
 from django.http import HttpResponse
+
+
+def index(request):
+    return render(request, 'ipdc/index.html')
+
+def investor_dashboard(request):
+    return render(request, 'ipdc/Investor_dashboard/index.html')
+
+def park_admin_dashboard(request):
+    return render(request, 'ipdc/Park_admin_dashboard/index3.html')
+
+def manager_dashboard(request):
+    return render(request, 'ipdc/manager_dashboard/index2.html')
+
+def board_dashboard(request):
+    return render(request, 'ipdc/Board_dashboard/index2.html')
+
+def oiib_dashboard(request):
+    return render(request, 'ipdc/OIIB_Dashboard/index4.html')
+
+
 @login_required(login_url='login')
 def profilepage(request):
     investorform=InvestorForm()
@@ -22,6 +43,7 @@ def profilepage(request):
             return HttpResponse('added')
     context = {'investorform':investorform}
     return render(request, 'ipdc/investorform.html',context)
+
 @login_required(login_url='login')
 def landpage(request):
     landform=LandForm()
