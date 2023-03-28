@@ -11,9 +11,14 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request, 'ipdc/index.html')
+def investor_personal_information(request):
+    return render(request, 'ipdc/Investor_dashboard/investor_personal_information.html')
 
-def investor_dashboard(request):
-    return render(request, 'ipdc/Investor_dashboard/index.html')
+def investor_project_information(request):
+    return render(request, 'ipdc/Investor_dashboard/investor_project_information.html')
+
+def investor_file_information(request):
+    return render(request, 'ipdc/Investor_dashboard/investor_file_information.html')
 
 def park_admin_dashboard(request):
     return render(request, 'ipdc/Park_admin_dashboard/index3.html')

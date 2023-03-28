@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'ipdc/investor_dashboard/investor_main_form.html' %}
+{% load static %}
+
+    {% block content %}
+
+
+<form method="POST" enctype="multipart/form-data">
+                  {{fileform.errors}}
+                  {% csrf_token %}
+                  
+                <div class="form-group">
+                    <label for="exampleInputFile">proposal</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="proposal"  class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"></span>
+                      </div>
+                    </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">passport</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="passport" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"></span>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">memorendum</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="memorendum" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"></span>
+                      </div>
+                    </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">bank statement</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="bank_statement" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"></span>
+                      </div>
+                    </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Id card</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="id_card" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"></span>
+                      </div>
+                    </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">power of attorney</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="power_of_attorney" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"></span>
+                      </div>
+                    </div>
+               
+           
+                  <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <!-- /.card-body -->
+               
+                <!-- /.card-footer -->
+              </form>
+
+
+
+{% endblock %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
