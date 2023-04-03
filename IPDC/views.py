@@ -7,8 +7,8 @@ from .forms import *
 from django.contrib import messages
 from . models import *
 from django.http import HttpResponse
-
-
+from .decorators import *
+@role_based
 def index(request):
     return render(request, 'ipdc/index.html')
 def investor_personal_information(request):
@@ -36,7 +36,6 @@ def oiib_dashboard(request):
 @login_required(login_url='login')
 def profilepage(request):
     investorform=InvestorForm()
-    print(investorform)
     if request.method =="POST":
         investorform=InvestorForm(request.POST)
         print(investorform)
@@ -87,10 +86,9 @@ def loginPage(request):
         except:
             return HttpResponse("Invalid")
         user = authenticate(request, username=uuser.username, password=password)
-        print(user)
         if user is not None:
             login(request, user)
-            return redirect("profilepage")
+            return redirect("home")
         else:
             messages.info(request, 'Username OR password is incorrect')
 

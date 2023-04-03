@@ -39,5 +39,24 @@ def admin_only(view_func):
 
 	return wrapper_function
 
+def role_based(view_func):
+	def wrapper_function(request, *args, **kwargs):
+		group = None
+		if request.user.groups.exists():
+			group = request.user.groups.all()[0].name
+		print("on work")
+		if group == 'investor':
+			return redirect('investor_personal_information')
+		if group == 'oiib':
+			return redirect('oiib')
+		if group == 'oipdc_board':
+			return redirect('oipdc_board')
+		if group == 'oipdc_manager':
+			return redirect('oipdc_manager')
+		if group == 'park_admin':
+			return redirect('park_admin')
+		else:
+			return view_func(request, *args, **kwargs)
+	return wrapper_function
 
 
